@@ -1,0 +1,73 @@
+{
+  "predictions": {
+    "predictions": [
+      {
+        "class_name": "class-1",
+        "label": 0,
+        "probability": 0.12999999523162842,
+        "specie": {
+          "class_": "class-1",
+          "common_name": "Northern Watersnake",
+          "id": 0,
+          "specie_name": "Nerodia sipedon"
+        }
+      },
+      {
+        "class_name": "class-2",
+        "label": 1,
+        "probability": 0.17000000178813934,
+        "specie": {
+          "class_": "class-2",
+          "common_name": "Common Garter snake",
+          "id": 1,
+          "specie_name": "Thamnophis sirtalis"
+        }
+      },
+      {
+        "class_name": "class-3",
+        "label": 2,
+        "probability": 0.4399999976158142,
+        "specie": {
+          "class_": "class-3",
+          "common_name": "DeKay's Brown snake",
+          "id": 2,
+          "specie_name": "Storeria dekayi"
+        }
+      },
+      {
+        "class_name": "class-4",
+        "label": 3,
+        "probability": 0.05000000074505806,
+        "specie": {
+          "class_": "class-4",
+          "common_name": "Black Rat snake",
+          "id": 3,
+          "specie_name": "Patherophis obsoletus"
+        }
+      },
+      {
+        "class_name": "class-5",
+        "label": 4,
+        "probability": 0.20999999344348907,
+        "specie": {
+          "class_": "class-5",
+          "common_name": "Western Diamondback rattlesnake",
+          "id": 4,
+          "specie_name": "Crotalus atrox"
+        }
+      }
+    ],
+    "top_prediction": {
+      "class_name": "class-3",
+      "label": 2,
+      "probability": 0.4399999976158142,
+      "specie": {
+        "class_": "class-3",
+        "common_name": "DeKay's Brown snake",
+        "id": 2,
+        "specie_name": "Storeria dekayi"
+      }
+    }
+  },
+  "success": true
+}
