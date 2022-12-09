@@ -1,18 +1,35 @@
 ### Snake Specie Identification (SSI)
 
-🐍Snake Specie Identification (SSI) is a deep learning API for classifying different 5 species of snakes from images. 🐍
+🐍Snake Specie Identification (SSI) is a deep learning API for classifying different 5 species of snakes from images. 🐍 SSI comes with `2` types of `API's` that was build using a light weight python library called `flask` which are:
+
+1. REST api
+2. GRAPHQL api
 
 <p align="center">
 <img src="/cover.jpg" width="100%" alt="cover"/>
 </p>
 
+### SSI Tool
+
+SSI was also build using the graphql API for snakes species identification on mobile phones. A sub repo called `mobile` contains a react-native application that send graphql mutation to the flask server to do snake identification tasks in real-time.
+
+<p align="center">
+<img src="/0.jpeg" alt="cover" height="200"/>
+<img src="/3.jpeg" alt="cover" height="200"/>
+<img src="/2.jpeg" alt="cover" height="200"/>
+<img src="/1.jpeg" alt="cover" height="200"/>
+
+</p>
+
 ### GraphQL
+
+I Expose the graphql api at `http://localhost:3001/graphql` on local computers for doing snake specie identification, here is an example of sending a graphql mutation to the server using `cURL`:
 
 ```shell
 curl http://localhost:3001/graphql  -F operations='{ "query": "mutation PredictSnakeSpecie($input: PredictionInputType!) { predictSnake(input: $input) { error { field message } ok prediction {predictions {  label probability className specie { id specieName commonName } } } } }", "variables": { "input": {"image": null} } }'  -F map='{ "0": ["variables.input.image"] }'  -F 0=@class-1.jpg
 ```
 
-### Expected Response from `GraphQL`
+If everything is working fine here is the expected Response from `GraphQL` api.
 
 ```json
 {
@@ -81,11 +98,13 @@ curl http://localhost:3001/graphql  -F operations='{ "query": "mutation PredictS
 
 ### REST
 
+I also Expose the rest api at `http://127.0.0.1:3001/api/rest/identify` endpoint on local computers for doing snake specie identification, here is an example of sending a post request to the server using `cURL`:
+
 ```shell
 curl -X POST -F image=@class-1.jpg http://127.0.0.1:3001/api/rest/identify
 ```
 
-### Expected Response from `REST`
+If everything is working fine here is the expected expected Response from `REST`
 
 ```json
 {
@@ -161,4 +180,31 @@ curl -X POST -F image=@class-1.jpg http://127.0.0.1:3001/api/rest/identify
   },
   "success": true
 }
+```
+
+### License
+
+```
+MIT License
+
+Copyright (c) 2022 crispengari
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
 ```

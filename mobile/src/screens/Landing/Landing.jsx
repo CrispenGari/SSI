@@ -1,78 +1,106 @@
-import { View, Text, Button } from "react-native";
-import React, { useState } from "react";
-import { useMediaPermissions } from "../../hooks";
-import * as ImagePicker from "expo-image-picker";
+import { View, Text, TouchableOpacity, StatusBar, Image } from "react-native";
+import React from "react";
+import { COLORS, FONTS } from "../../constants";
 
-import { gql, useMutation } from "@apollo/client";
-import { generateRNFile } from "../../utils";
-
-const Landing = () => {
-  const {} = useMediaPermissions();
-  const [image, setImage] = useState(null);
-
-  const [predict, { loading, data }] = useMutation(gql`
-    mutation PredictSnakeSpecie($input: PredictionInputType!) {
-      predictSnake(input: $input) {
-        error {
-          field
-          message
-        }
-        ok
-        prediction {
-          predictions {
-            label
-            probability
-            className
-            specie {
-              id
-              specieName
-              commonName
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  const selectImage = async () => {
-    const { assets, canceled } = await ImagePicker.launchImageLibraryAsync({
-      base64: false,
-      allowsMultipleSelection: false,
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      quality: 1,
-    });
-
-    if (!canceled) {
-      setImage({
-        uri: assets[0].uri,
-        name: assets[0].fileName,
-      });
-    }
-  };
-
-  console.log(JSON.stringify({ loading, data }, null, 2));
+const Landing = ({ navigation }) => {
   return (
-    <View>
-      <Text>Landing</Text>
-      <Button title="Get Image" onPress={selectImage} />
-      <Button
-        title="Upload"
-        onPress={async () => {
-          if (!!!image) {
-            return;
-          }
-          const file = generateRNFile(image);
-          if (file) {
-            await predict({
-              variables: {
-                input: {
-                  image: file,
-                },
-              },
-            });
-          }
+    <View
+      style={{
+        flex: 1,
+        padding: 10,
+        backgroundColor: COLORS.main,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <StatusBar barStyle={"light-content"} />
+      <View
+        style={{
+          alignItems: "center",
+          marginBottom: 30,
+          flex: 0.7,
+          justifyContent: "center",
         }}
-      />
+      >
+        <Text
+          style={{
+            fontFamily: FONTS.NunitoSansExtraBold,
+            color: COLORS.gray,
+            letterSpacing: 3,
+            fontSize: 30,
+            marginBottom: 30,
+          }}
+        >
+          snakes species
+        </Text>
+        <Image
+          source={{
+            uri: Image.resolveAssetSource(require("../../../assets/logo.png"))
+              .uri,
+          }}
+          style={{
+            width: 100,
+            height: 100,
+            marginBottom: 30,
+          }}
+        />
+        <Text
+          style={{
+            textAlign: "center",
+            color: COLORS.gray,
+            fontFamily: FONTS.NunitoSansRegular,
+          }}
+        >
+          SNAKE SPECIES is a mobile AI tool for identifying species of snakes
+          from images. If you are traumatized by SNAKES don't open this tool.
+        </Text>
+      </View>
+      <View
+        style={{
+          justifyContent: "space-between",
+          flex: 0.3,
+          width: "100%",
+          alignItems: "center",
+        }}
+      >
+        <TouchableOpacity
+          onPress={() => {
+            navigation.replace("Home", {});
+          }}
+          style={{
+            marginVertical: 30,
+            backgroundColor: COLORS.blue,
+            width: "90%",
+            paddingHorizontal: 20,
+            paddingVertical: 15,
+            justifyContent: "center",
+            alignItems: "center",
+            borderRadius: 999,
+          }}
+          activeOpacity={0.7}
+        >
+          <Text
+            style={{
+              color: COLORS.main,
+              fontFamily: FONTS.NunitoSansRegular,
+              letterSpacing: 2,
+              fontSize: 20,
+            }}
+          >
+            open tool
+          </Text>
+        </TouchableOpacity>
+        <Text
+          style={{
+            margin: 20,
+            color: COLORS.gray,
+            textAlign: "center",
+            fontFamily: FONTS.NunitoSansItalic,
+          }}
+        >
+          AI tool developed by @crispengari.
+        </Text>
+      </View>
     </View>
   );
 };
