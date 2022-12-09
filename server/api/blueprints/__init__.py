@@ -7,7 +7,7 @@ from models.pytorch import *
 blueprint = Blueprint("blueprint", __name__)
 
 @blueprint.route('/rest/identify', methods=["POST"]) 
-def detect_humour():
+def identify_snake_specie():
     data = {"success": False}
     if request.method == "POST":
         if request.files.get("image"):
