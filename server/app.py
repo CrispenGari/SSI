@@ -2,17 +2,17 @@
 import os
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 
-from app import app
+from api.app import app
 from flask import make_response, jsonify
-from blueprints import blueprint
+from api.blueprints import blueprint
 from graphene_file_upload.flask import FileUploadGraphQLView
-from schema import schema
+from api.schema import schema
 
 app.register_blueprint(blueprint, url_prefix="/api")
 class AppConfig:
     PORT = 3001
     DEBUG = False
-    
+
 @app.route('/', methods=["GET"])
 def meta():
     meta = {
