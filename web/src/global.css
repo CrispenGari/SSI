@@ -1,0 +1,14 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+}
+body {
+  --red: #ff3953;
+  --main: "#2C3333";
+  --naive: "#395B64";
+  --blue: "#A5C9CA";
+  --gray: "#E7F6F2";
+}
