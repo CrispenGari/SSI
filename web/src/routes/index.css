@@ -1,0 +1,25 @@
+.home {
+  display: flex;
+  flex-direction: column;
+}
+.home__main {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.home__main > form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.home__main > form > img {
+  width: 400px;
+  height: 400px;
+  object-fit: contain;
+  margin: 20px auto;
+}
+
+.home__main > form > button {
+}

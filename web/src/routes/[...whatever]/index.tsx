@@ -11,7 +11,14 @@ export default component$(() => {
       <div class="not__found__main">
         <h1>Page Not Found</h1>
         <ImgLogo alt="logo" />
-        <Link href="/">GO HOME</Link>
+        <h2>
+          <span>4</span>
+          <span>0</span>
+          <span>4</span>
+        </h2>
+        <Link class="not__found__main__link" href="/">
+          SSI TOOL
+        </Link>
       </div>
     </div>
   );

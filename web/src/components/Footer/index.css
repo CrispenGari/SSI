@@ -1,0 +1,7 @@
+p {
+  text-align: center;
+  font-style: italic;
+  padding: 10px;
+  color: var(--gray);
+  user-select: none !important;
+}

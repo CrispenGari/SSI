@@ -1,15 +1,13 @@
 .not__found {
-  width: 100vw;
-  height: 100vh;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  background-color: var(--main);
+  width: 100%;
+  height: 100%;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   display: flex;
   padding: 10px;
   user-select: none;
+  flex: 1;
 }
 .not__found__main {
   flex-direction: column;
@@ -18,8 +16,40 @@
   align-items: center;
 }
 .not__found__main > img {
+  -webkit-user-drag: none !important;
   margin-top: 10px;
-  width: 80px;
+  width: 80px !important;
+  height: 80px !important;
   margin-bottom: 10px;
+  object-fit: contain !important;
   align-self: center;
+}
+.not__found__main > h1,
+.not__found__main > h2 {
+  color: var(--gray);
+}
+
+.not__found__main > h2 {
+  font-size: 3rem;
+  margin: 30px auto;
+}
+
+.not__found__main > h2 > span {
+  position: relative;
+}
+.not__found__main > h2 > span:nth-child(2) {
+  color: var(--red);
+  animation: bounce 1s ease 500ms infinite alternate-reverse forwards;
+}
+.not__found__main__link {
+  color: white !important;
+  font-size: 2rem;
+}
+@keyframes bounce {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -50px;
+  }
 }

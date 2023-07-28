@@ -1,0 +1,24 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  border-bottom: 1px solid var(--gray);
+  background-color: var(--naive);
+  position: sticky;
+  top: 0;
+}
+
+.header > img {
+  width: 40px !important;
+  height: 40px !important;
+  -webkit-user-drag: none;
+  cursor: pointer;
+}
+
+.header > a > img {
+  width: 40px !important;
+  height: 40px !important;
+  -webkit-user-drag: none;
+  cursor: pointer;
+}
