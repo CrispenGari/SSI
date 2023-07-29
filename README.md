@@ -11,14 +11,22 @@
 
 ### SSI Tool
 
-SSI was also build using the graphql API for snakes species identification on mobile phones. A sub repo called `mobile` contains a react-native application that send graphql mutation to the flask server to do snake identification tasks in real-time.
+SSI was also build using the graphql API for snakes species identification on mobile phones. A sub repos called `mobile` and `web` contains a `react-native` and a `qwik` application that send `graphql mutation` and a `rest-http-request` respectively to the flask server to do snake identification tasks in real-time.
+
+### mobile
 
 <p align="center">
 <img src="/0.jpeg" alt="cover" height="200"/>
 <img src="/3.jpeg" alt="cover" height="200"/>
 <img src="/2.jpeg" alt="cover" height="200"/>
 <img src="/1.jpeg" alt="cover" height="200"/>
+</p>
 
+### web
+
+<p align="center">
+<img src="/web02.jpg" alt="cover" width="100%"/>
+<img src="/web01.jpg" alt="cover" width="100%"/>
 </p>
 
 ### GraphQL

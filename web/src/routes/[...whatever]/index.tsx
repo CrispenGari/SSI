@@ -3,6 +3,7 @@ import { component$, useStylesScoped$ } from "@builder.io/qwik";
 import styles from "./index.css?inline";
 import { Link } from "@builder.io/qwik-city";
 import type { DocumentHead } from "@builder.io/qwik-city";
+import Footer from "~/components/Footer/Footer";
 
 export default component$(() => {
   useStylesScoped$(styles);
@@ -20,6 +21,7 @@ export default component$(() => {
           SSI TOOL
         </Link>
       </div>
+      <Footer />
     </div>
   );
 });

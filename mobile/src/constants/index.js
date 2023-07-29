@@ -1,4 +1,4 @@
-export const uri = "https://90f3-197-98-127-119.ngrok.io/graphql";
+export const uri = "https://b850-102-66-181-53.ngrok-free.app/graphql";
 
 export const COLORS = {
   main: "#2C3333",
